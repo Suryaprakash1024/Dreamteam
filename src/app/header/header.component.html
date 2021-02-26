@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+		<mat-toolbar style="margin-top:30px;"> </mat-toolbar>
+
+		<mat-nav-list>
+			<mat-list-item routerLink="match" (click)="closeSideNav()">
+				<mat-icon matListIcon>home</mat-icon>
+				<a matLine>Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</mat-list-item>
+
+			<mat-list-item routerLink="match" (click)="closeSideNav()">
+				<mat-icon matListIcon>games</mat-icon>
+				<a matLine>Match</a>
+			</mat-list-item>
+
+			<mat-list-item routerLink="toss" (click)="closeSideNav()">
+				<mat-icon matListIcon>album</mat-icon>
+				<a matLine>Toss</a>
+			</mat-list-item>
+
+			<mat-list-item routerLink="stats" (click)="closeSideNav()">
+				<mat-icon matListIcon>assessment</mat-icon>
+				<a matLine>Stats</a>
+			</mat-list-item>
+
+			<mat-list-item routerLink="wallet" (click)="closeSideNav()">
+				<mat-icon matListIcon>account_balance_wallet</mat-icon>
+				<a matLine>Wallet</a>
+			</mat-list-item>
+
+		</mat-nav-list>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+			Dream Team
+		</mat-toolbar>
+		<div class="container">
+			<router-outlet></router-outlet>
+		</div>
+		<div class="ylb-app-content">
+			<ng-content></ng-content>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <nav>
+	<a routerLink="match" class="btn btn-primary active" role="button" routerLinkActive="active">
+		Match</a>&nbsp;&nbsp;
+	<a routerLink="toss" class="btn btn-primary active" role="button" routerLinkActive="active">Toss</a>&nbsp;&nbsp;
+</nav> -->
+<!-- <router-outlet></router-outlet> -->
