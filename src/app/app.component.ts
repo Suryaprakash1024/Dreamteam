@@ -1,5 +1,6 @@
 import { Component, VERSION } from "@angular/core";
-
+import { AngularFirestore } from "@angular/fire/firestore";
+import { MatDialog } from "@angular/material";
 
 @Component({
   selector: "my-app",
@@ -7,6 +8,5 @@ import { Component, VERSION } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  name = "Admin ";
+  constructor(private dialog: MatDialog, private store: AngularFirestore) {}
 }
-d
